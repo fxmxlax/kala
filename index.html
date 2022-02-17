@@ -1,0 +1,247 @@
+
+<!-- saved from url=(0066)https://gumgum-content.s3.amazonaws.com/ads/com/Kala/kala_600.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
+
+	<link rel="stylesheet" href="./kala_600_files/stylesheet.css">
+	<style>
+		body {
+			font-family: 'Futura PT', sans-serif;
+		}
+	</style>
+
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<style>
+		body {
+			margin: 0 !important;
+			margin-top: -11;
+			margin-top: 0;
+			padding: 0;
+			overflow: hidden;
+			line-height: 12px;
+
+		}
+
+		#scrollContainer {
+			overflow-x: hidden;
+			overflow: auto;
+			margin: auto;
+			max-width: 450px;
+			width: 100%;
+			height: 100%;
+			/* FIREFOX SCROLLBAR SETTINGS */
+			scrollbar-color: rgba(0, 0, 0, 1);
+  			scrollbar-width: thin;
+		}
+
+		#content {
+			padding: 0px 10px;
+		}
+
+		/* SCROLLING SETTINGS */
+		.scrollDiv {
+			scroll-behavior: smooth;
+		}
+
+		::-webkit-scrollbar {
+			-webkit-appearance: none;
+			width: 11px;
+			padding: 0;
+		}
+
+		::-webkit-scrollbar-thumb {
+			border-radius: 4px;
+			background-color: rgba(224, 81, 48, 1);
+			box-shadow: 0 0 1px rgba(0, 255, 255, .5);
+		}
+
+		/* CUSTOM FONT */
+
+		/* TEXT STYLES */
+
+		p {
+			font-family: 'Futura PT', sans-serif;
+			color: #000000;
+			font-size: 10px;
+			margin: 16px 0;
+		}
+
+		a {
+			text-decoration: none;
+			color: #e05130;
+		}
+
+		ul {
+			margin: 0 0 0 -25;
+		}
+
+		li {
+		font-family: 'Futura PT', sans-serif;
+			color: #000000;
+			font-size: 10px;
+		}
+
+		/* CONTAINER STYLES */
+		.container {
+			background-color: #F0F4F4;
+			padding: 8px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="scrollContainer">
+		<div id="content">
+
+
+			<!-- ADD YOUR CONTENT HERE -->
+			<p><strong>INDICATION</strong></p>
+
+			<p>EYSUVIS is a corticosteroid indicated for the short-term (up to two weeks) treatment of the signs and symptoms of dry eye disease.</p>
+
+			<p><strong>IMPORTANT SAFETY INFORMATION</strong></p>
+
+			<p>EYSUVIS should not be used if you have a viral infection in your eye. Talk to your doctor before using EYSUVIS if you think you may have a viral, bacterial, or fungal eye infection.</p>
+
+
+			<p>Your doctor should examine your eyes before prescribing EYSUVIS, to check for increased eye pressure or damage to the surface of the eye. Consult your doctor if pain, redness, itching, or inflammation develops or gets worse.</p>
+
+			<p>Wash your hands well before each use. Do not allow the dropper tip to touch any surface, as this may contaminate the suspension. Shake the bottle for two to three seconds before using. If a dose is missed, take the missed dose when remembered.</p>
+
+			<p>Remove contact lenses before using EYSUVIS; they may be reinserted 15 minutes later.</p>
+
+			<p>The most common adverse drug reaction following the use of EYSUVIS for two weeks was instillation site pain, which was reported in 5% of patients.</p>
+
+			<p><a href="https://www.eysuvis.com/pdf/prescribing-information.pdf" rel="noopener noreferrer" target="_blank"><strong><u>Please see full Prescribing Information</u></strong></a></p>
+
+			<p>*In a clinical trial program with 2871 patients with Dry Eye, patients using EYSUVIS showed significant reduction in the symptoms of Dry Eye (ocular discomfort) as early as Day 4 after starting treatment (versus placebo). Symptoms continued to improve up to the end of the treatment period (Day 15). Patients taking EYSUVIS also showed significant reduction in signs of Dry Eye (eye redness) at Day 15 versus placebo.</p>
+
+			<p>EYSUVIS is a registered trademark of Kala Pharmaceuticals. &copy2022 Kala Pharmaceuticals. All rights reserved. US-EYS-2200090 February 2022</p>
+
+			<!-- END CONTENT -->
+
+
+		</div>
+	</div>
+
+
+<script>
+	//AUTOSCROLL JS
+
+	//CHANGEABLE VARIABLES
+	var autoScroll = true, //TURNS OFF AND ON AUTOSCROLL
+		interactionStopsScroll = false, //IF TRUE, WILL FORCE QUIT AUTOSCROLL ON ANY USER INTERACTION
+		rate = 75, //SPEED OF SCROLL; HIGHER = SLOWER
+		delay = 1500; //DELAY OF STARTING AUTOSCROLL IN MS
+	//////////////////////
+
+
+	var scrollCont = document.getElementById('scrollContainer'),
+		currentScrollPosition,
+		scrollIntervals = null,
+		pauseTimeout,
+		e;
+
+	document.addEventListener('mousemove', function () { e = event; });
+	document.onload = setTimeout(function () { init(); }, delay);
+
+	function init() {
+		if (!autoScroll) return;
+		console.log('init');
+
+		currentScrollPosition = scrollCont.scrollTop;
+
+		if (!interactionStopsScroll) {
+			scrollCont.addEventListener('mouseenter', pauseScroll);
+			scrollCont.addEventListener('mouseleave', startScroll);
+			scrollCont.addEventListener('touchmove', stopMobileScroll);
+		} else {
+			scrollCont.addEventListener('mouseenter', stopScroll);
+			scrollCont.addEventListener('touchmove', stopScroll);
+		}
+
+		var top = getProp(scrollCont, 'offsetTop'),
+			left = getProp(scrollCont, 'offsetLeft'),
+			bottom = scrollCont.offsetHeight + top,
+			right = scrollCont.offsetWidth + left;
+
+		if (!scrollCont.matches(':hover')) {
+			startScroll();
+		}
+
+		if (e) {
+			if ((e.pageY > top && e.pageY < bottom && e.pageX > left && e.pageX < right)) {
+				console.log('nope');
+			} else {
+				startScroll();
+			}
+		}
+	}
+
+	function getProp(el, prop, value) {
+		if (value === undefined) value = 0;
+		if (el.parentNode) return getProp(el.parentNode, prop, value + el[prop]);
+		else return value;
+	}
+
+	function startScroll() {
+		console.log('startScroll');
+		pauseTimeout = setTimeout(function () {
+			currentScrollPosition = scrollCont.scrollTop;
+			if (!scrollIntervals) {
+				scrollIntervals = setInterval(function () {
+					scrollIt();
+				}, rate);
+			}
+		}, 250);
+	}
+
+	function pauseScroll() {
+		console.log('pauseScroll');
+		clearTimeout(pauseTimeout);
+		clearInterval(scrollIntervals);
+		scrollIntervals = null;
+	}
+
+	function stopMobileScroll() {
+		console.log('stopMobileScroll');
+		clearTimeout(pauseTimeout);
+		clearInterval(scrollIntervals);
+		scrollIntervals = null;
+		pauseTimeout = setTimeout(function () {
+			currentScrollPosition = scrollCont.scrollTop;
+			if (!scrollIntervals) {
+				scrollIntervals = setInterval(function () {
+					scrollIt();
+				}, rate);
+			}
+		}, 3000);
+	}
+
+	function scrollIt() {
+		console.log('scrollIt', scrollCont.scrollTop, scrollCont.scrollHeight - scrollCont.offsetHeight);
+		if (scrollCont.scrollTop < (scrollCont.scrollHeight - scrollCont.offsetHeight)) {
+			currentScrollPosition++;
+			scrollCont.scrollTop = currentScrollPosition;
+		} else {
+			stopScroll();
+		}
+	}
+
+	function stopScroll() {
+		console.log("stopScroll");
+		if (!interactionStopsScroll) {
+			scrollCont.removeEventListener("mouseenter", pauseScroll);
+			scrollCont.removeEventListener("mouseleave", startScroll);
+			scrollCont.removeEventListener("touchmove", stopMobileScroll);
+		} else {
+			scrollCont.removeEventListener("mouseenter", stopScroll);
+			scrollCont.removeEventListener("touchmove", stopScroll);
+		}
+		clearInterval(scrollIntervals);
+	}
+
+</script>
+
+
+</body></html>
